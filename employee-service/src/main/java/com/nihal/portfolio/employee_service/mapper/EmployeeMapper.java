@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class EmployeeMapper {
 
     public Employee mapEmpDtoToEntity(EmployeeDto employeeDto){
-        return new Employee(employeeDto.getId(), employeeDto.getFirstName(), employeeDto.getLastName(), employeeDto.getEmail());
+        return new Employee(employeeDto.getId(), employeeDto.getFirstName(), employeeDto.getLastName(), employeeDto.getEmail(), employeeDto.getDepartmentCode());
     }
 
     public EmployeeDto mapEmpEntityToDto(Employee employee){
-        return new EmployeeDto(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail());
+        return new EmployeeDto(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail(), employee.getDepartmentCode());
     }
 }
