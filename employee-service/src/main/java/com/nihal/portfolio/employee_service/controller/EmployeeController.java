@@ -1,5 +1,6 @@
 package com.nihal.portfolio.employee_service.controller;
 
+import com.nihal.portfolio.employee_service.dto.APIResponseDto;
 import com.nihal.portfolio.employee_service.dto.EmployeeDto;
 import com.nihal.portfolio.employee_service.service.EmployeeService;
 import org.springframework.http.HttpStatus;
@@ -22,9 +23,9 @@ public class EmployeeController {
         return new ResponseEntity<>(savedEmployeeDto, HttpStatus.CREATED);
     }
 
-    @GetMapping("{email}")
-    public ResponseEntity<EmployeeDto> getEmployeeByEmail(@PathVariable("email") String email){
-        EmployeeDto employeeDto = employeeService.getEmployeeByEmail(email);
-        return new ResponseEntity<>(employeeDto,HttpStatus.OK);
+    @GetMapping("{email}/{departmentCode}")
+    public ResponseEntity<APIResponseDto> getEmployeeByEmail(@PathVariable("email") String email, @PathVariable("departmentCode") String departmentCode){
+        APIResponseDto apiResponseDto = employeeService.getEmployeeByEmail(email,departmentCode);
+        return new ResponseEntity<>(apiResponseDto,HttpStatus.OK);
     }
 }
